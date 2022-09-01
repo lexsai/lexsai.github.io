@@ -1,0 +1,119 @@
+:root {
+    --background :#09090a;
+    --text: #f1e2f8;
+    --accent: #ff79c6;
+    --accent2: rgb(59, 54, 62);
+    --link-color: #ffc0e0;
+}
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    color: var(--text);
+    font-family: consolas;
+    background-color: var(--background);
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+}
+
+a:link{text-decoration: none; color: var(--link-color);}
+a:visited{text-decoration: none; color:	var(--link-color);}
+a:hover{text-decoration: none; color: var(--accent);}
+a:active{text-decoration: none; color: var(--accent);}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper header {
+    height: 15vh;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 4vh;
+}
+
+.wrapper header h1 {
+    font-size: 5vh;
+}
+
+.wrapper main {
+    position: relative;
+    flex: 1;
+    margin: 0 auto;
+}
+
+.wrapper footer {
+    height: 15vh;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 4vh;
+}
+
+.main-title {
+    padding-top: 50%;
+    font-size: 2vh;
+    text-align: center;
+}
+
+.main-title h1 {
+    font-size: 10vh;
+    text-align: center;
+}
+
+.post-text {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.post-text p {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.paginator {
+    position: absolute;
+    text-align: center;    
+    font-size: 20px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+.current-page {
+    display: inline-block;
+    color: var(--accent2);
+}
+
+.post-preview {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--accent);
+    font-size: 13px;
+    max-width: 80vh;
+}
+
+.post-preview h2 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.results-box a:link{text-decoration: none; color: var(--text);}
+.results-box a:visited{text-decoration: none; color:	var(--text);}
+.results-box a:hover{text-decoration: none; color: var(--link-color);}
+.results-box a:active{text-decoration: none; color: var(--link-color);}
+
+
+.results-box a:nth-child(1) .post-preview {
+    border-top: 1px solid var(--accent);
+}
+

@@ -1,0 +1,50 @@
+---
+pagination:
+    data: collections.post
+    size: 5
+    alias: posts
+    reverse: true
+---
+
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>POSTS</h1> <a href="/index.html">HOME</a> | <div class="current-page">POSTS</div> | <a href="/about/">ABOUT ME</a> 
+            </header>
+            <main>
+                <div class="results-box">
+                    {% for post in posts %}
+                        <a href="{{post.url}}">
+                            <div class="post-preview">
+                                <h2>{{ post.data.title }} - {% formatDate post.data.date %}</h2>
+                                {% excerpt post %}
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div><br>
+                <div class="paginator">
+                    <p>
+                        {% if pagination.href.previous %}
+                            <a href=" {{ pagination.href.previous }}">PREV</a>
+                        {% else %}
+                            PREV
+                        {% endif %} 
+                        / 
+                        {% if pagination.href.next %}
+                            <a href=" {{ pagination.href.next }}">NEXT</a>
+                        {% else %}
+                            NEXT
+                        {% endif %}
+                    </p>
+                </div>    
+            </main>
+            <footer>
+                made with 11ty
+            </footer>
+        </div>
+    </body>
+</html>
