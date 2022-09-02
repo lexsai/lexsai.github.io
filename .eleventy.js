@@ -15,7 +15,8 @@ module.exports = eleventyConfig => {
 	return {
         passthroughFileCopy: true,
 		dir: {
-			input: 'blog'
+			input: 'blog',
+			output: 'docs'
 		}
 	}
 };
