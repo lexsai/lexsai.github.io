@@ -11,13 +11,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
+        - name: Checkout
+          uses: actions/checkout@v2
 
 
-        - name: Setup Node
+        - name: Set Node.js 12
           uses: actions/setup-node@v1
           with:
-            node-version: '10.x'
+            node-version: 12
 
 
         - run: npm ci
