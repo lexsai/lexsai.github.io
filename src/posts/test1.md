@@ -17,7 +17,7 @@ Given the game was shut down by exploiters in the past, the developers put effor
 ### THE CLIENT
 The first idea I had was to look through the client with dnspy. Perhaps I could reverse the protocol by looking at the send & receive functions.
 
-![](/images/dnspy.png)
+![](/images/dnspy.PNG)
 
 The first security measure: obfuscation. 
 
@@ -29,24 +29,24 @@ There is one cool observation though: a 'CryptoProvider' class with hashing meth
 Given that reversing the client would probably be tedious and beyond my skill level, I instead opted to look at the network. After identifying the servers of the game by clicking login and quickly tabbing over to wireshark, I set up a wireshark filter and started looking at the packets sent when logging in.
 
 The exchange when I try logging in with correct credentials:
-![](/images/wireshark.png)
+![](/images/wireshark.PNG)
 
 The particular response packet when I use a correct login:
-![](/images/correctlogin.png)
+![](/images/correctlogin.PNG)
 
 The exchange when I try logging in with incorrect credentials:
-![](/images/incorrectcredentials.png)
+![](/images/incorrectcredentials.PNG)
 
 The particular response packet when I use an incorrect login:
-![](/images/incorrectcredentialspacket.png)
+![](/images/incorrectcredentialspacket.PNG)
 
 Given that an incorrect login gives the response packet a message of, "Incorrect Credentials", I can safely assume that the the packet of 353 bytes likely contains my login credentials. Let's see it.
 
-![](/images/353packet.png)
+![](/images/353packet.PNG)
 
 Looking closely, a pattern is apparent:
 
-![](/images/353packetannotated.png)
+![](/images/353packetannotated.PNG)
 
 Two strings, each prepended by an 0xAC 0x00. If we interpret 0xAC 0x00 as little endian, we get 0xAC = 172, the exact length of each string. Hence, it probably refers to the string length.
 
@@ -54,7 +54,7 @@ Furthermore, if we interpret the first four bytes as little endian as well, we g
 
 Now, the only mystery are the strings. The fact that both strings end in an "=" sign suggests base64. 
 
-![](/images/decryption.png)
+![](/images/decryption.PNG)
 
 However, if we try to decode it from base64, we get garbage. Could the strings potentially be encrypted? It would make sense for login credentials to be encrypted before transmission.
 
@@ -64,7 +64,7 @@ Recall from our earlier look into the client that there were functions in the IL
 
 Setting a breakpoint on all of these functions and attempting to login, we get a hit!
 
-![](/images/faillogindnspy.png)
+![](/images/faillogindnspy.PNG)
 
 Inspecting the CryptoProvider instance in dnspy, we find the RSA public key with both exponent & modulus. 
 
@@ -72,11 +72,11 @@ But, for both strings in the packet to always be 172 bytes, there must be some k
 
 Following the function calls, we arrive here:
 
-![](/images/pkcs1.png)
+![](/images/pkcs1.PNG)
 
 PKCS1 is a padding scheme!
 
-![](/images/docs.png)
+![](/images/docs.PNG)
 
 ### EMULATION
 
@@ -84,7 +84,7 @@ We now have all the data to construct a login packet.
 
 Writing a python script to use the public key and PKCS1 padding standard to RSA encrypt my username and password and assemble a login packet, we get a response:
 
-![](/images/successpython.png)
+![](/images/successpython.PNG)
 
 The server is responding with our username-- this probably means that our login was successful!
 
@@ -92,11 +92,11 @@ The server is responding with our username-- this probably means that our login 
 
 In the login response packet, there is actually a token (that I covered up earlier):
 
-![](/images/correctlogin.png)
+![](/images/correctlogin.PNG)
 
 The client sends this token after initiating a handshake with another server on login:
 
-![](/images/connection.png)
+![](/images/connection.PNG)
 
 Likely, the login flow is as follows:
 
