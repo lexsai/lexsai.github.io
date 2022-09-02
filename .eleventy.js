@@ -2,6 +2,9 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPassthroughCopy('./src/css')
     eleventyConfig.addWatchTarget("./src/css/");
 
+    eleventyConfig.addPassthroughCopy('./src/images')
+    eleventyConfig.addWatchTarget("./src/images/");
+
     eleventyConfig.addShortcode('excerpt', post => {
         let content = post.templateContent;
         let endFirstPara = content.indexOf('</p>');

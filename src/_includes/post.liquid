@@ -9,9 +9,10 @@ title: HAHA II
     <body>
         <div class="wrapper">
             <header>
-                <h1>{{ title }}</h1> <a href="/index.html">HOME</a> | <a href="/archive/">POSTS</a> | <a href="/about/">ABOUT ME</a> 
+                <h1 id = "page-title">{{ title }}</h1> <a href="/index.html">HOME</a> | <a href="/archive/">POSTS</a> | <a href="/about/">ABOUT ME</a> 
             </header>
             <main>
+                <div class="date">{% formatDate date %}</div>
                 <section class="post-text">
                     {{ content }}
                 </section>
@@ -20,5 +21,12 @@ title: HAHA II
                 made with 11ty
             </footer>
         </div>
+
+        <script>
+            let pageTitleElement = document.getElementById("page-title");
+            if (pageTitleElement.innerText.length > 15) {
+                pageTitleElement.classList.add("medium-text")
+            }
+        </script>
     </body>
 </html>

@@ -1,11 +1,105 @@
 ---
 layout: post.liquid
-title: AN EXAMPLE TITLE
-date: 2022-08-22
+title: Reversing a Multiplayer Game Protocol - "Darza's Dominion" (Part 1)
+date: 2022-09-03
 tags: ['post']
 ---
 
-asLorem ipsuassm dolor sit amet, consectetur adipiscing elit. Duis vehicula quam eget lectus blandit tempus. Aenean urna elit, sodales id diam in, viverra faucibus eros. Nunc quis porta justo, id euismod diam. Quisque elementum venenatis condimentum. Fusce bibendum magna sit amet urna feugiat vehicula. Mauris sit amet molestie ipsum. Ut facilisis, nisi sit amet tempus mattis, massa nibh lacinia felis, in semper sapien justo at arcu. Aenean non dolor a lacus pellentesque rhoncus. Aliquam a tincidunt turpis. Nam egestas ipsum vel turpis viverra dapibus. Cras purus leo, porta tristique augue et, ullamcorper convallis justo.
+As a beginner to reverse engineering, I was looking for real software to practice on when it hit me-- what about a multiplayer game? Multiplayer games often have anticheats to prevent users from reversing their games, and understanding how a multiplayer game works would require both reversing the executable AND the closed API used by the client to communicate with game servers.
 
+So, this is my attempt at reversing a multiplayer game.
 
-Fusce ullamcorper felis non massa feugiat mollis. Aenean eu quam pulvinar, congue arcu id, aliquet leo. Phasellus sed sapien ultrices, semper sapien sit amet, sagittis lectus. Phasellus auctor nisi viverra consequat dapibus. Praesent finibus, enim non tempus tempor, neque enim porttitor felis, sit amet aliquam risus arcu quis ante. Vestibulum a risus venenatis, dictum nunc id, posuere sem. Vivamus quis ante vitae felis bibendum interdum. Suspendisse dignissim ut orci id faucibus. Integer non erat arcu. Curabitur fermentum leo vitae condimentum eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer at dui sollicitudin, fermentum tortor sit amet, pretium est. Integer sed fringilla turpis. Integer eget tempus erat. Sed finibus congue quam, et molestie lorem fringilla sit amet.
+### THE TARGET
+Darza's Dominion was initially released in 2015 as a mobile 'port' of "Realm of the Mad God", a bullethell permadeath MMO (very obscure). However, due to a rampant duping exploit, it was shut down for several years and re-released in 2022 by a small team of developers as a cross-platform game for both PC and mobile.
+
+Given the game was shut down by exploiters in the past, the developers put effort into securing their game with various measures-- as I discovered.
+
+### THE CLIENT
+The first idea I had was to look through the client with dnspy. Perhaps I could reverse the protocol by looking at the send & receive functions.
+
+![](/images/dnspy.png)
+
+The first security measure: obfuscation. 
+
+Because of the illegal unicode polluting the program's symbols in the IL, editing and recompiling the program's IL with dnspy would be difficult.
+
+There is one cool observation though: a 'CryptoProvider' class with hashing methods. Interesting.
+
+### THE NETWORK
+Given that reversing the client would probably be tedious and beyond my skill level, I instead opted to look at the network. After identifying the servers of the game by clicking login and quickly tabbing over to wireshark, I set up a wireshark filter and started looking at the packets sent when logging in.
+
+The exchange when I try logging in with correct credentials:
+![](/images/wireshark.png)
+
+The particular response packet when I use a correct login:
+![](/images/correctlogin.png)
+
+The exchange when I try logging in with incorrect credentials:
+![](/images/incorrectcredentials.png)
+
+The particular response packet when I use an incorrect login:
+![](/images/incorrectcredentialspacket.png)
+
+Given that an incorrect login gives the response packet a message of, "Incorrect Credentials", I can safely assume that the the packet of 353 bytes likely contains my login credentials. Let's see it.
+
+![](/images/353packet.png)
+
+Looking closely, a pattern is apparent:
+
+![](/images/353packetannotated.png)
+
+Two strings, each prepended by an 0xAC 0x00. If we interpret 0xAC 0x00 as little endian, we get 0xAC = 172, the exact length of each string. Hence, it probably refers to the string length.
+
+Furthermore, if we interpret the first four bytes as little endian as well, we get 0x15D = 349, exactly 353-4. This is likely the packet size minus the 4 bytes used to store the packet size.
+
+Now, the only mystery are the strings. The fact that both strings end in an "=" sign suggests base64. 
+
+![](/images/decryption.png)
+
+However, if we try to decode it from base64, we get garbage. Could the strings potentially be encrypted? It would make sense for login credentials to be encrypted before transmission.
+
+### DYNAMIC ANALYSIS
+
+Recall from our earlier look into the client that there were functions in the IL named "EncryptRsaBase64", "HashSha1Base64", and "HashSha256Base64". Perhaps they are used to encrypt the login details?
+
+Setting a breakpoint on all of these functions and attempting to login, we get a hit!
+
+![](/images/faillogindnspy.png)
+
+Inspecting the CryptoProvider instance in dnspy, we find the RSA public key with both exponent & modulus. 
+
+But, for both strings in the packet to always be 172 bytes, there must be some kind of padding...
+
+Following the function calls, we arrive here:
+
+![](/images/pkcs1.png)
+
+PKCS1 is a padding scheme!
+
+![](/images/docs.png)
+
+### EMULATION
+
+We now have all the data to construct a login packet.
+
+Writing a python script to use the public key and PKCS1 padding standard to RSA encrypt my username and password and assemble a login packet, we get a response:
+
+![](/images/successpython.png)
+
+The server is responding with our username-- this probably means that our login was successful!
+
+### NEXT PART
+
+In the login response packet, there is actually a token (that I covered up earlier):
+
+![](/images/correctlogin.png)
+
+The client sends this token after initiating a handshake with another server on login:
+
+![](/images/connection.png)
+
+Likely, the login flow is as follows:
+
+Client sends login to auth server -> auth server replies with token -> client uses token to connect with game server.
+
+Next part will be focused around connecting with the game server-- this is all for now.
