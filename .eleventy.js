@@ -1,6 +1,6 @@
 module.exports = eleventyConfig => {
-    eleventyConfig.addPassthroughCopy('./blog/css')
-    eleventyConfig.addWatchTarget("./blog/css/");
+    eleventyConfig.addPassthroughCopy('./src/css')
+    eleventyConfig.addWatchTarget("./src/css/");
 
     eleventyConfig.addShortcode('excerpt', post => {
         let content = post.templateContent;
@@ -15,7 +15,7 @@ module.exports = eleventyConfig => {
 	return {
         passthroughFileCopy: true,
 		dir: {
-			input: 'blog',
+			input: 'src',
 			output: 'docs'
 		}
 	}
