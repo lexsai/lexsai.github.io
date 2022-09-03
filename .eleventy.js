@@ -3,7 +3,7 @@ module.exports = eleventyConfig => {
     eleventyConfig.addWatchTarget("./src/css/");
 
     eleventyConfig.addPassthroughCopy('./src/images')
-    eleventyConfig.addWatchTarget("./src/images/");
+    eleventyConfig.addWatchTarget("./src/images/darza1/");
 
     eleventyConfig.addShortcode('excerpt', post => {
         let content = post.templateContent;

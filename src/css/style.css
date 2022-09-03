@@ -62,7 +62,7 @@ a:active{text-decoration: none; color: var(--accent);}
 
 .main-title {
     padding-top: 50%;
-    font-size: 2vh;
+    font-size: 1.75vh;
     text-align: center;
 }
 
@@ -73,13 +73,18 @@ a:active{text-decoration: none; color: var(--accent);}
 
 .post-text {
     margin: 0 auto;
-    width: 40%;
+    width: 70vh;
     line-height: 1.5;
 }
 
 .post-text p {
     margin-top: 4%;
     margin-bottom: 4%;
+}
+
+.post-text li {
+    margin-top: 0;
+    margin-left: 10%;
 }
 
 .post-text h3 {
@@ -91,6 +96,7 @@ a:active{text-decoration: none; color: var(--accent);}
     margin: 0 auto;
     text-align: center;
     font-weight: bold;
+    color: var(--accent2);
 }
 
 .post-text img {

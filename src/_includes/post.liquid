@@ -4,6 +4,8 @@ title: HAHA II
 
 <html>
     <head>
+        <title>{{ title }} - HAHA II</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <link rel="stylesheet" href="/css/style.css" />
     </head>
     <body>
@@ -12,6 +14,7 @@ title: HAHA II
                 <h1 id = "page-title">{{ title }}</h1> <a href="/index.html">HOME</a> | <a href="/archive/">POSTS</a> | <a href="/about/">ABOUT ME</a> 
             </header>
             <main>
+                <br>
                 <div class="date">{% formatDate date %}</div>
                 <section class="post-text">
                     {{ content }}
