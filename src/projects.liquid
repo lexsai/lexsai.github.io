@@ -1,0 +1,56 @@
+---
+pagination:
+    data: collections.project
+    size: 5
+    alias: projects
+    reverse: true
+---
+
+<html>
+    <head>
+        <title>PROJECTS - HAHA II</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <nav>
+                    <a href="/index.html">HOME</a>
+                    <a href="/archive/">POSTS</a>
+                    <div class="current-page">PROJECTS</div>
+                </nav> 
+            </header>
+            <main>
+                <h1 class="page-title" id="page-title">My Projects</h1>
+                <div class="results-box">
+                    {% for post in projects %}
+                        <a href="{{post.url}}">
+                            <div class="post-preview">
+                                <h2>{{ post.data.title }}</h2>
+                                {% excerpt post %}
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div><br>
+                <div class="paginator">
+                    <p>
+                        {% if pagination.href.previous %}
+                            <a href=" {{ pagination.href.previous }}">PREV</a>
+                        {% else %}
+                            PREV
+                        {% endif %} 
+                        / 
+                        {% if pagination.href.next %}
+                            <a href=" {{ pagination.href.next }}">NEXT</a>
+                        {% else %}
+                            NEXT
+                        {% endif %}
+                    </p>
+                </div>    
+            </main>
+            <footer>
+            </footer>
+        </div>
+    </body>
+</html>
