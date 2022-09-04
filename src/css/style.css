@@ -40,7 +40,7 @@ a:active{text-decoration: none; color: var(--accent);}
     height: 15vh;
     margin: 0 auto;
     text-align: center;
-    padding-top: 4vh;
+    padding-top: 3vh;
 }
 
 .wrapper header h1 {
@@ -121,7 +121,7 @@ a:active{text-decoration: none; color: var(--accent);}
 
 .post-preview {
     padding: 1.5rem;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent2);
     font-size: 13px;
     max-width: 80vh;
 }
@@ -137,8 +137,8 @@ a:active{text-decoration: none; color: var(--accent);}
 .results-box a:active{text-decoration: none; color: var(--link-color);}
 
 
-.results-box a:nth-child(1) .post-preview {
-    border-top: 1px solid var(--accent);
+.results-box a:nth-last-child(1) .post-preview {
+    border-bottom: 0;
 }
 
 .medium-text {

@@ -52,7 +52,9 @@ Two strings, each prepended by an 0xAC 0x00. If we interpret 0xAC 0x00 as little
 
 Furthermore, if we interpret the first four bytes as little endian as well, we get 0x15D = 349, exactly 353-4. This is likely the packet size minus the 4 bytes used to store the packet size.
 
-Now, the only mystery are the strings. The fact that both strings end in an "=" sign suggests base64. 
+The fifth byte, 0x07, seems out of place. It would be safe to assume that this is a packet id of sorts.
+
+Now, the only mystery are the strings. The fact that both strings end in an "=" sign suggests base64 encoding. 
 
 ![](/images/darza1/decryption.PNG)
 
@@ -84,7 +86,7 @@ PKCS1 is a padding scheme!
 
 We now have all the data to construct a login packet.
 
-Writing a python script to use the public key and PKCS1 padding standard to RSA encrypt my username and password and assemble a login packet, we get a response:
+Writing a python script to use the public key and PKCS1 padding standard to RSA encrypt my username and password and assemble a login packet, we get this response:
 
 ![](/images/darza1/successpython.PNG)
 
