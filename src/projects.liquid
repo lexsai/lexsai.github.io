@@ -23,12 +23,12 @@ pagination:
             </header>
             <main>
                 <h1 class="page-title" id="page-title">My Projects</h1>
-                <div class="results-box">
-                    {% for post in projects %}
-                        <a href="{{post.url}}">
-                            <div class="post-preview">
-                                <h2>{{ post.data.title }}</h2>
-                                {% excerpt post %}
+                <div class="project-box">
+                    {% for project in projects %}
+                        <a href="{{project.url}}">
+                            <div class="project-preview">
+                                <h2>{{ project.data.title }}</h2>
+                                {% excerpt project %}
                             </div>
                         </a>
                     {% endfor %}
