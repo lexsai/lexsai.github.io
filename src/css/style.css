@@ -1,3 +1,9 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
 :root {
     --background :#09090a;
     --text: #f1e2f8;
@@ -14,7 +20,7 @@
 
 body {
     color: var(--text);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Inter;
     background-color: var(--background);
 }
 
@@ -40,25 +46,25 @@ a:active{text-decoration: none; color: var(--link-color);}
 .wrapper header {
     position: fixed;
     height: 8vh;
-    padding-left: 10vh;
-    padding-top: 2vh;
+    padding-left: 10vw;
+    padding-top: 2.5vh;
     font-size: 2.5vh;
     width: 100%;
     background-color: var(--background);
     z-index: 3;
-    font-weight: 1;
 }
 
 .wrapper header a {
-    padding-left: 1.5vh;
-    padding-right: 1.5vh;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
 }
+
 
 .current-page {
     display: inline-block;
     color: var(--accent2);
-    padding-left: 1.5vh;
-    padding-right: 1.5vh;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
 }
 
 
@@ -86,28 +92,26 @@ a:active{text-decoration: none; color: var(--link-color);}
 
 .main-title h1 {
     font-size: 15vh;
-    font-weight: 1;
     text-align: center;
     color: var(--accent3);
+    font-weight: 200;
 }
 
 .page-title {
     text-align: center;
     font-weight: normal;
     color: var(--accent);
-    font-weight: 1;
 }
 
 .post-text {
     margin: 0 auto;
-    width: 70vh;
+    width: 50vw;
     line-height: 1.5;
 }
 
 .post-text p {
     margin-top: 4%;
     margin-bottom: 4%;
-    font-weight: 1;
 }
 
 .post-text li {
@@ -118,9 +122,8 @@ a:active{text-decoration: none; color: var(--link-color);}
 .post-text h3 {
     margin: 0 auto;
     text-align: center;
-    font-weight: normal;
     color: var(--accent);
-    font-weight: 1;
+    font-weight: 300;
 }
 
 .post-text img {
@@ -131,7 +134,6 @@ a:active{text-decoration: none; color: var(--link-color);}
 .date {
     margin: 0 auto;
     text-align: center;
-    font-weight: bold;
     color: var(--accent2);
 }
 
@@ -147,14 +149,13 @@ a:active{text-decoration: none; color: var(--link-color);}
 .post-preview {
     padding: 1.5rem;
     border-bottom: 1px solid var(--accent2);
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5;
-    max-width: 80vh;
+    max-width: 50vw;
 }
 
 .post-preview h2 {
     font-size: 16px;
-    font-weight: 500;
 }
 
 .results-box a:link{text-decoration: none; color: var(--text);}
