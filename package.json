@@ -1,7 +1,7 @@
 {
-  "name": "haha-site",
+  "name": "lexsai-site",
   "version": "1.0.0",
-  "description": "a blog site",
+  "description": "a personal site",
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
