@@ -7,11 +7,16 @@
     <body>
         <div class="wrapper">
             <canvas id="background" width="1000" height="1000"></canvas> 
-            <header> 
+            <header>
+                <nav>
+                    <div class="current-page">HOME</div>
+                    <a href="/archive/">POSTS</a>
+                    <a href="/index.html">PROJECTS</a>
+                </nav> 
             </header>
             <main>
                 <div class="main-title">
-                    <h1>HAHA II</h1> <div class="current-page">HOME</div> | <a href="/archive/">POSTS</a> | <a href="/about/">ABOUT ME</a> 
+                    <h1>HAHA II</h1>
                 </div>
             </main>
             <footer>
@@ -19,7 +24,12 @@
             </footer>
         </div>
 
-        <script>
+        <script> 
+            function vh(v) {
+                var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+                return (v * h) / 100;
+            }
+
             const canvas = document.getElementById("background");
             const ctx = canvas.getContext("2d");
             canvas.width = width = window.innerWidth;
@@ -127,7 +137,7 @@
                     else if (this.x > width) {
                         vec[0] = -limitingSpeed
                     }
-                    if (this.y < 0) {
+                    if (this.y < vh(9)) {
                         vec[1] = limitingSpeed;
                     } 
                     else if (this.y > height) {

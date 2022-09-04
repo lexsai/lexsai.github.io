@@ -11,10 +11,14 @@ title: HAHA II
     <body>
         <div class="wrapper">
             <header>
-                <h1 id = "page-title">{{ title }}</h1> <a href="/index.html">HOME</a> | <a href="/archive/">POSTS</a> | <a href="/about/">ABOUT ME</a> 
+                <nav>
+                    <a href="/index.html">HOME</a>
+                    <a href="/archive/">POSTS</a>
+                    <a href="/index.html">PROJECTS</a>
+                </nav> 
             </header>
             <main>
-                <br>
+                <h1 class="page-title" id="page-title">{{ title }}</h1>
                 <div class="date">{% formatDate date %}</div>
                 <section class="post-text">
                     {{ content }}
