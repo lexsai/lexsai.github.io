@@ -2,7 +2,7 @@
     --background :#09090a;
     --text: #f1e2f8;
     --accent: #ff79c6;
-    --accent3: #ffcde9;
+    --accent3: #df3896;
     --accent2: rgb(59, 54, 62);
     --link-color: #ffc0e0;
 }
@@ -46,6 +46,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     width: 100%;
     background-color: var(--background);
     z-index: 3;
+    font-weight: 1;
 }
 
 .wrapper header a {
@@ -78,22 +79,23 @@ a:active{text-decoration: none; color: var(--link-color);}
 }
 
 .main-title {
-    padding-top: 50%;
+    padding-top: 70%;
     font-size: 1.75vh;
     text-align: center;
 }
 
 .main-title h1 {
-    color: var(--text);
-    font-size: 13vh;
-    font-weight: normal;
+    font-size: 15vh;
+    font-weight: 1;
     text-align: center;
+    color: var(--accent3);
 }
 
 .page-title {
     text-align: center;
     font-weight: normal;
     color: var(--accent);
+    font-weight: 1;
 }
 
 .post-text {
@@ -105,6 +107,7 @@ a:active{text-decoration: none; color: var(--link-color);}
 .post-text p {
     margin-top: 4%;
     margin-bottom: 4%;
+    font-weight: 1;
 }
 
 .post-text li {
@@ -117,6 +120,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     text-align: center;
     font-weight: normal;
     color: var(--accent);
+    font-weight: 1;
 }
 
 .post-text img {
