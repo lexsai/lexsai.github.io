@@ -103,12 +103,6 @@ a:active{text-decoration: none; color: var(--link-color);}
     color: var(--accent);
 }
 
-.post-text {
-    margin: 0 auto;
-    width: 50vw;
-    line-height: 1.5;
-}
-
 .post-text p {
     margin-top: 4%;
     margin-bottom: 4%;
@@ -154,6 +148,32 @@ a:active{text-decoration: none; color: var(--link-color);}
     max-width: 50vw;
 }
 
+.post-text {
+    margin: 0 auto;
+    width: 50vw;
+    line-height: 1.5;
+}
+   
+.project-box a {
+    width: 50%; 
+}
+
+@media only screen and (min-device-width: 480px){
+    .post-preview {
+        max-width: 95vw;
+    }
+
+    .post-text {
+        margin: 0 auto;
+        width: 90vw;
+        line-height: 1.5;
+    }
+       
+    .project-box a {
+        width: 100%; 
+    }
+}
+
 .post-preview h2 {
     font-size: 16px;
 }
@@ -175,10 +195,6 @@ a:active{text-decoration: none; color: var(--link-color);}
 .project-box {
     display: flex;
     flex-wrap: wrap;
-}
-
-.project-box a {
-    width: 50%; 
 }
 
 .project-preview {
