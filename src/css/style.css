@@ -121,7 +121,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
     
     .main-title {
-        padding-top: 70%;
+        padding-top: 60%;
         font-size: 1.75vh;
         text-align: center;
     }
@@ -142,11 +142,12 @@ a:active{text-decoration: none; color: var(--link-color);}
         text-align: center;
         font-weight: normal;
         color: var(--accent3);
-        font-size: 6vh;
+        max-width: 90vw;
+        font-size: 4vh;
     }
    
     .medium-text {
-        font-size: 4vh !important;
+        font-size: 3.5vh !important;
         padding-bottom: 1vh;
     }
     
@@ -154,7 +155,7 @@ a:active{text-decoration: none; color: var(--link-color);}
         margin: 0 auto;
         width: 90vw;
         line-height: 1.5;
-        font-size: 40px; 
+        font-size: 2.2vh; 
     }
 
     .post-text p {
@@ -172,6 +173,7 @@ a:active{text-decoration: none; color: var(--link-color);}
         text-align: center;
         color: var(--accent);
         font-weight: 300;
+        font-size: 2.6vh !important;
     }
     
     .post-text img {
@@ -183,13 +185,13 @@ a:active{text-decoration: none; color: var(--link-color);}
         margin: 0 auto;
         text-align: center;
         color: var(--accent2);
-        font-size: 40px;
+        font-size: 2.2vh;
     }
     
     .paginator {
         position: absolute;
         text-align: center;    
-        font-size: 3.5vh;
+        font-size: 2.2vh;
         bottom: 2vh;
         right: 0;
         left: 0;
@@ -204,7 +206,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
     
     .post-preview h2 {
-        font-size: 2.5vh;    
+        font-size: 2.25vh;    
     }
         
     .project-box a {
@@ -218,7 +220,7 @@ a:active{text-decoration: none; color: var(--link-color);}
         height: 8vh;
         padding-left: 10vw;
         padding-top: 2.5vh;
-        font-size: 3vh;
+        font-size: 1.2em;
         width: 100%;
         background-color: var(--background);
         z-index: 3; 
@@ -253,17 +255,16 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
     
     .main-title {
-        padding-top: 70%;
-        font-size: 1.75vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-size: 2em;
         text-align: center;
-    }
-    
-    .main-title .fa-github {
-        font-size: 7vh;
+        height: 100%;
     }
     
     .main-title h1 {
-        font-size: 15vh;
+        font-size: 3.5em;
         text-align: center;
         color: var(--accent3);
         font-weight: 200;
@@ -273,20 +274,20 @@ a:active{text-decoration: none; color: var(--link-color);}
         text-align: center;
         font-weight: normal;
         color: var(--accent3);
-        font-size: 5vh;
+        font-size: 2em;
         margin: 0 auto;
         max-width: 80%;
     }
     
     .medium-text {
-        font-size: 4.25vh !important;
+        font-size: 1.8em !important;
         padding-bottom: 1vh;
     }
     
     .post-text {
         margin: 0 auto;
         width: 50vw;
-        font-size: 2.5vh;
+        font-size: 1em;
         line-height: 1.5;
     }
 
@@ -304,6 +305,7 @@ a:active{text-decoration: none; color: var(--link-color);}
         margin: 0 auto;
         text-align: center;
         color: var(--accent);
+        font-size: 1.2em !important;
         font-weight: 400;
     }
     
@@ -316,13 +318,13 @@ a:active{text-decoration: none; color: var(--link-color);}
         margin: 0 auto;
         text-align: center;
         color: var(--accent2);
-        font-size: 2.75vh;
+        font-size: 1em;
     }
     
     .paginator {
         position: absolute;
         text-align: center;    
-        font-size: 3vh;
+        font-size: 1.2em;
         bottom: 8vh;
         right: 0;
         left: 0;
@@ -331,13 +333,13 @@ a:active{text-decoration: none; color: var(--link-color);}
     .post-preview {
         padding: 1.5rem;
         border-bottom: 1px solid var(--accent2);
-        font-size: 15px;
+        font-size: 0.9em;
         line-height: 1.5;
-        max-width: 50vw;
+        max-width: 60vw;
     }
     
     .post-preview h2 {
-        font-size: 16px;    
+        font-size: 1em;    
     }
     
     .project-box a {
