@@ -42,15 +42,10 @@ a:active{text-decoration: none; color: var(--link-color);}
 .main-title a:hover{text-decoration: none; color: var(--accent) !important;}
 .main-title a:active{text-decoration: none; color: var(--accent) !important;}
 
-.project-box a:link{text-decoration: none; color: var(--text);}
-.project-box a:visited{text-decoration: none; color: var(--text);}
-.project-box a:hover{text-decoration: none; color: var(--link-color) !important;}
-.project-box a:active{text-decoration: none; color: var(--link-color) !important;}
-
-.results-box a:link{text-decoration: none; color: var(--text);}
-.results-box a:visited{text-decoration: none; color: var(--text);}
-.results-box a:hover{text-decoration: none; color: var(--link-color) !important;}
-.results-box a:active{text-decoration: none; color: var(--link-color) !important;}
+.project-box a:link, .results-box a:link {text-decoration: none; color: var(--text); transition: 0.3s}
+.project-box a:visited, .results-box a:visited {text-decoration: none; color: var(--text); transition: 0.3s}
+.project-box a:hover, .results-box a:hover {text-decoration: none; color: var(--link-color) !important;}
+.project-box a:active .results-box a:active {text-decoration: none; color: var(--link-color) !important;}
 
 .wrapper {
     height: 100%;
@@ -93,6 +88,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
     
     .wrapper header a {
+        transition: 0.3s;
         padding-left: 1.5vw;
         padding-right: 1.5vw;
     }
@@ -227,6 +223,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
 
     .wrapper header a {
+        transition: 0.3s;
         padding-left: 1.5vw;
         padding-right: 1.5vw;
     }
@@ -335,7 +332,7 @@ a:active{text-decoration: none; color: var(--link-color);}
         border-bottom: 1px solid var(--accent2);
         font-size: 0.9em;
         line-height: 1.5;
-        max-width: 60vw;
+        max-width: 50vw;
     }
     
     .post-preview h2 {
