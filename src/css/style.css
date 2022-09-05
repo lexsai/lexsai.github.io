@@ -37,13 +37,13 @@ a:visited{text-decoration: none; color:	var(--accent);}
 a:hover{text-decoration: none; color: var(--link-color);}
 a:active{text-decoration: none; color: var(--link-color);}
 
-.main-title a:link{text-decoration: none; color: var(--text); transition: 0.3s}
-.main-title a:visited{text-decoration: none; color: var(--text); transition: 0.3s}
+.main-title a:link{text-decoration: none; color: var(--text); transition: color 0.3s}
+.main-title a:visited{text-decoration: none; color: var(--text); transition: color 0.3s}
 .main-title a:hover{text-decoration: none; color: var(--accent) !important;}
 .main-title a:active{text-decoration: none; color: var(--accent) !important;}
 
-.project-box a:link, .results-box a:link {text-decoration: none; color: var(--text); transition: 0.3s}
-.project-box a:visited, .results-box a:visited {text-decoration: none; color: var(--text); transition: 0.3s}
+.project-box a:link, .results-box a:link {text-decoration: none; color: var(--text); transition: color 0.3s}
+.project-box a:visited, .results-box a:visited {text-decoration: none; color: var(--text); transition: color 0.3s}
 .project-box a:hover, .results-box a:hover {text-decoration: none; color: var(--link-color) !important;}
 .project-box a:active .results-box a:active {text-decoration: none; color: var(--link-color) !important;}
 
