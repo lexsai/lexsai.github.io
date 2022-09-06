@@ -1,15 +1,17 @@
 ---
 layout: post.liquid
 title: Dodge Game
-date: 2022-09-03
+date: 2021-12-12
 tags: ['project']
-href: https://thisisarewrite.herokuapp.com
+href: https://www.github.com/lexsai/dodge-web-game-rewrite
 ---
 
-Dodge Game is a multiplayer bullethell game I made for my HSC Software Design & Development major project. 
+![](/images/project_thumbnails/dodge-game.png)
+
+A multiplayer bullethell web game I made for my HSC Software Development & Design major project. 
 
 Made with Javascript and HTML5. Uses socket.io to communicate over the network and HTML5 canvas to render the game.
 
 In terms of time spent, probably my largest programming project-- lots of confusing problems with multiplayer networking and designing the software's architecture.
 
-Game hosted on Heroku.
+Hosted on Heroku, the link is available in the github repo.

@@ -12,7 +12,9 @@ So, this is my attempt at reversing a multiplayer game.
 ### THE TARGET
 Darza's Dominion was initially released in 2015 as a mobile 'port' of "Realm of the Mad God", a bullethell permadeath MMO (very obscure). However, due to a rampant duping exploit, it was shut down for several years and re-released in 2022 by a small team of developers as a cross-platform game for both PC and mobile.
 
-Given the game was shut down by exploiters in the past, the developers put effort into securing their game with various measures-- as I discovered.
+The game's terms of service is unavailable, the game has a player base of around 30, and they have an explicit bug bounty program-- reversing the game for educational purposes and participating in the bug bounty program is definitely ok.
+
+![](/images/darza1/bugbounty.PNG)
 
 ### THE CLIENT
 The first idea I had was to look through the client with dnspy. Perhaps I could reverse the protocol by looking at the send & receive functions.
