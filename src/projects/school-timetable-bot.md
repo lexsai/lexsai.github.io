@@ -6,7 +6,7 @@ tags: ['project']
 href: https://www.github.com/lexsai/school-timetable-bot/
 ---
 
-![](/images/project_thumbnails/school-timetable-bot.PNG)
+![](/images/project_thumbnails/school-timetable-bot.png)
 
 (Archived)
 
