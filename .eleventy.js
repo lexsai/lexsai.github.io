@@ -5,11 +5,11 @@ module.exports = eleventyConfig => {
     eleventyConfig.addPassthroughCopy('./src/images')
     eleventyConfig.addWatchTarget("./src/images/darza1/");
 
-    eleventyConfig.addShortcode('excerpt', post => {
+    eleventyConfig.addShortcode('excerpt', (post, length) => {
         let content = post.templateContent;
         let endFirstPara = content.indexOf('</p>');
         excerpt = content.slice(3, endFirstPara);
-        return excerpt.slice(0, 200) + "..."
+        return excerpt.slice(0, length) + "..."
     })
 
     eleventyConfig.addShortcode('formatDate', date => {

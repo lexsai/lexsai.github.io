@@ -1,7 +1,7 @@
 ---
 pagination:
     data: collections.project
-    size: 5
+    size: 6
     alias: projects
     reverse: true
 ---
@@ -25,10 +25,10 @@ pagination:
                 <h1 class="page-title" id="page-title">My Projects</h1>
                 <div class="project-box">
                     {% for project in projects %}
-                        <a href="{{project.url}}">
+                        <a class="project-link" href="{{ project.data.href }}">
                             <div class="project-preview">
                                 <h2>{{ project.data.title }}</h2>
-                                {% excerpt project %}
+                                {{ project.templateContent }}
                             </div>
                         </a>
                     {% endfor %}

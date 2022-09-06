@@ -42,10 +42,10 @@ a:active{text-decoration: none; color: var(--link-color);}
 .main-title a:hover{text-decoration: none; color: var(--accent) !important;}
 .main-title a:active{text-decoration: none; color: var(--accent) !important;}
 
-.project-box a:link, .results-box a:link {text-decoration: none; color: var(--text); transition: color 0.3s}
-.project-box a:visited, .results-box a:visited {text-decoration: none; color: var(--text); transition: color 0.3s}
-.project-box a:hover, .results-box a:hover {text-decoration: none; color: var(--link-color) !important;}
-.project-box a:active .results-box a:active {text-decoration: none; color: var(--link-color) !important;}
+.project-box .project-link:link, .results-box .post-link:link {text-decoration: none; color: var(--text); transition: color 0.3s}
+.project-box .project-link:visited, .results-box .post-link:visited {text-decoration: none; color: var(--text); transition: color 0.3s}
+.project-box .project-link:hover, .results-box .post-link:hover {text-decoration: none; color: var(--link-color) !important;}
+.project-box .project-link:active .results-box .post-link:active {text-decoration: none; color: var(--link-color) !important;}
 
 .wrapper {
     height: 100%;
@@ -59,20 +59,28 @@ a:active{text-decoration: none; color: var(--link-color);}
 }
 
 .project-box {
+    width: 95%;
+    margin: 0 auto;
     display: flex;
+    flex-direction:row;
     flex-wrap: wrap;
 }
 
-.results-box a:nth-last-child(1) .post-preview {
+.results-box .post-link:nth-last-child(1) .post-preview {
     border-bottom: 0;
 }
 
-.project-box a:nth-last-child(1) .post-preview {
-    border-bottom: 0;
-}
-
-.project-box a:nth-child(even) {
+.project-box .project-link:nth-child(even) {
     border-left: 1px solid var(--accent2);
+}
+.project-box .project-link {
+    border-bottom: 1px solid var(--accent2);
+}
+.project-box .project-link:nth-last-child(2) {
+    border-bottom: 0;
+}
+.project-box .project-link:nth-last-child(1) {
+    border-bottom: 0;
 }
 
 @media only screen and (min-device-width: 320px) {
@@ -185,12 +193,11 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
     
     .paginator {
-        position: absolute;
         text-align: center;    
         font-size: 2.2vh;
-        bottom: 2vh;
         right: 0;
         left: 0;
+        padding-bottom: 2vh;
     }
 
     .post-preview {
@@ -204,9 +211,32 @@ a:active{text-decoration: none; color: var(--link-color);}
     .post-preview h2 {
         font-size: 2.25vh;    
     }
-        
-    .project-box a {
-        width: 100%; 
+     
+    .project-box {
+        margin-top: 2em;
+    }
+
+    .project-box .project-link {
+        width: 50%;
+    }
+
+    .project-box .project-preview {
+        padding: 1em;
+        padding-bottom: 2em;
+        font-size: 0.9em;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .project-box .project-preview p {
+        margin-top: 1em !important;
+        margin-bottom: 1em !important;
+    }
+    
+    .project-box .project-preview h2 {
+        padding: 0.1em;
+        text-align: center;
+        font-size: 1.2em;
     }
 }
 
@@ -319,18 +349,17 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
     
     .paginator {
-        position: absolute;
         text-align: center;    
         font-size: 1.2em;
-        bottom: 8vh;
         right: 0;
         left: 0;
+        padding-bottom: 2vh;
     }
     
     .post-preview {
         padding: 1.5rem;
         border-bottom: 1px solid var(--accent2);
-        font-size: 0.9em;
+        font-size: 1em;
         line-height: 1.5;
         max-width: 50vw;
     }
@@ -339,7 +368,30 @@ a:active{text-decoration: none; color: var(--link-color);}
         font-size: 1em;    
     }
     
-    .project-box a {
-        width: 50%; 
+    .project-box {
+        margin-top: 2em;
+    }
+
+    .project-box .project-link {
+        width: 50%;
+    }
+
+    .project-box .project-preview {
+        padding: 1em;
+        padding-bottom: 2em;
+        font-size: 0.9em;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .project-box .project-preview p {
+        margin-top: 1em !important;
+        margin-bottom: 1em !important;
+    }
+    
+    .project-box .project-preview h2 {
+        padding: 0.1em;
+        text-align: center;
+        font-size: 1.2em;
     }
 }
