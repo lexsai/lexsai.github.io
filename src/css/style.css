@@ -136,6 +136,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     
     .page-title {
         padding-top: 3vh;
+        margin: 0 auto;
         text-align: center;
         font-weight: normal;
         color: var(--accent3);
@@ -210,14 +211,13 @@ a:active{text-decoration: none; color: var(--link-color);}
     }
 
     .project-box .project-link {
-        width: 50%;
+        width: 100%;
+        margin: 0 auto;
     }
 
     .project-box .project-preview {
-        padding: 1em;
-        padding-bottom: 2em;
-        font-size: 0.9em;
-        width: 70%;
+        font-size: 2.25em;
+        width: 100%;
         margin: 0 auto;
     }
 
@@ -229,7 +229,12 @@ a:active{text-decoration: none; color: var(--link-color);}
     .project-box .project-preview h2 {
         padding: 0.1em;
         text-align: center;
-        font-size: 1.2em;
+        font-size: 3.5rem;
+    }
+    
+    .project-box .project-preview img {
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -374,6 +379,7 @@ a:active{text-decoration: none; color: var(--link-color);}
         font-size: 1em;
         width: 70%;
         margin: 0 auto;
+        padding-top: 1em;
     }
 
     .project-box .project-preview p {
