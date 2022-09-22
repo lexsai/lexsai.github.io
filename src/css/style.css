@@ -1,8 +1,8 @@
-@import url('https://rsms.me/inter/inter.css');
-html { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-  html { font-family: 'Inter var', sans-serif; }
+@font-face {
+    font-family: "light";
+    src: url(/fonts/basis33.ttf);
 }
+
 
 :root {
     --background :#09090a;
@@ -21,7 +21,7 @@ html { font-family: 'Inter', sans-serif; }
 
 body {
     color: var(--text);
-    font-family: Inter;
+    font-family: 'light';
     background-color: var(--background);
 }
 
@@ -49,14 +49,32 @@ a:active{text-decoration: none; color: var(--link-color);}
 .project-box .project-link:active .results-box .post-link:active {text-decoration: none; color: var(--link-color) !important;}
 
 .wrapper {
-    height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.border-container {
+    border: double 5.5px var(--text);
+    z-index: 3;
+    background-color: var(--background);
+    margin-left: 25vw;
+    max-width: 50vw;
+}
+
+.border-container-wide {
+    border: double 5.5px var(--text);
+    z-index: 3;
+    background-color: var(--background);
+    margin-left: 20vw;
+    max-width: 60vw;
 }
 
 .results-box {
     display: flex;
     flex-direction: column;
+    width: 50vw;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .project-box {
@@ -68,333 +86,183 @@ a:active{text-decoration: none; color: var(--link-color);}
 }
 
 .project-box .project-link {
-    background-color: var(--background2);
+    border: solid 2.5px var(--text);
 }
 
 .results-box .post-link:nth-last-child(1) .post-preview {
     border-bottom: 0;
 }
 
-
-@media only screen and (min-device-width: 320px) {
-    .wrapper header {
-        position: fixed;
-        height: 8vh;
-        padding-left: 12.5vw;
-        padding-top: 2.5vh;
-        font-size: 3.5vh;
-        width: 100%;
-        background-color: var(--background);
-        z-index: 3;
-    }
-    
-    .wrapper header a {
-        transition: color 0.3s;
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;
-    }
-    
-    .current-page {
-        display: inline-block;
-        color: var(--accent2);
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;
-    }    
-    
-    .wrapper main {
-        top: 8vh;
-        bottom: 8vh;
-        position: relative;
-        flex: 1;
-        margin: 0 auto;
-    }
-    
-    .wrapper footer {
-        height: 15vh;
-        margin: 0 auto;
-        text-align: center;
-        padding-top: 10vh;
-        padding-bottom: 5vh;
-    }
-    
-    .main-title {
-        padding-top: 60%;
-        font-size: 1.75vh;
-        text-align: center;
-    }
-    
-    .main-title .fa-github {
-        font-size: 7vh;
-    }
-    
-    .main-title h1 {
-        font-size: 15vh;
-        text-align: center;
-        color: var(--accent3);
-        font-weight: 200;
-    }
-    
-    .page-title {
-        padding-top: 3vh;
-        margin: 0 auto;
-        text-align: center;
-        font-weight: normal;
-        color: var(--accent3);
-        max-width: 90vw;
-        font-size: 4vh;
-    }
-   
-    .medium-text {
-        font-size: 3.5vh !important;
-        padding-bottom: 1vh;
-    }
-    
-    .post-text {
-        margin: 0 auto;
-        width: 90vw;
-        line-height: 1.5;
-        font-size: 2.2vh; 
-    }
-
-    .post-text p {
-        margin-top: 4%;
-        margin-bottom: 4%;
-    }
-    
-    .post-text li {
-        margin-top: 0;
-        margin-left: 10%;
-    }
-    
-    .post-text h3 {
-        margin: 0 auto;
-        text-align: center;
-        color: var(--accent);
-        font-weight: 300;
-        font-size: 2.6vh !important;
-    }
-    
-    .post-text img {
-        width: 100%;
-        height: auto;
-    }
-    
-    .date {
-        margin: 0 auto;
-        text-align: center;
-        color: var(--accent2);
-        font-size: 2.2vh;
-    }
-    
-    .paginator {
-        text-align: center;    
-        font-size: 2.2vh;
-        right: 0;
-        left: 0;
-        padding-bottom: 2vh;
-    }
-
-    .post-preview {
-        padding: 1.5rem;
-        border-bottom: 3px solid var(--accent2);
-        font-size: 2vh;
-        line-height: 1.5;
-        max-width: 95vw;
-    }
-    
-    .post-preview h2 {
-        font-size: 2.25vh;    
-    }
-     
-    .project-box {
-        margin-top: 2em;
-    }
-
-    .project-box .project-link {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .project-box .project-preview {
-        font-size: 2.25em;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .project-box .project-preview p {
-        margin-top: 1em !important;
-        margin-bottom: 1em !important;
-    }
-    
-    .project-box .project-preview h2 {
-        padding: 0.1em;
-        text-align: center;
-        font-size: 3.5rem;
-    }
-    
-    .project-box .project-preview img {
-        width: 100%;
-        height: auto;
-    }
+.wrapper header {
+    position: sticky;
+    top: 0;
+    height: 8vh;
+    padding-left: 13vw;
+    padding-top: 2vh;
+    font-size: 2em;
+    width: 50vw;
+    margin-left: 25vw;
+    background-color: var(--background);
+    z-index: 3; 
 }
 
-@media only screen and (min-device-width: 768px) {       
-    .wrapper header {
-        position: fixed;
-        height: 8vh;
-        padding-left: 10vw;
-        padding-top: 2.5vh;
-        font-size: 1.2em;
-        width: 100%;
-        background-color: var(--background);
-        z-index: 3; 
-    }
+.wrapper header a {
+    transition: color 0.3s;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
 
-    .wrapper header a {
-        transition: color 0.3s;
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;
-    }
-    
-    .current-page {
-        display: inline-block;
-        color: var(--accent2);
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;
-    }
-    
-    .wrapper main {
-        top: 8vh;
-        bottom: 8vh;
-        position: relative;
-        flex: 1;
-        margin: 0 auto;
-    }
-    
-    .wrapper footer {
-        height: 15vh;
-        margin: 0 auto;
-        text-align: center;
-        padding-top: 10vh;
-        padding-bottom: 5vh;
-    }
-    
-    .main-title {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        font-size: 2em;
-        text-align: center;
-        height: 100%;
-    }
-    
-    .main-title h1 {
-        font-size: 3.5em;
-        text-align: center;
-        color: var(--accent3);
-        font-weight: 200;
-    }
-    
-    .page-title {
-        text-align: center;
-        font-weight: normal;
-        color: var(--accent3);
-        font-size: 2em;
-        margin: 0 auto;
-        max-width: 80%;
-    }
-    
-    .medium-text {
-        font-size: 1.8em !important;
-        padding-bottom: 1vh;
-    }
-    
-    .post-text {
-        margin: 0 auto;
-        width: 50vw;
-        font-size: 1em;
-        line-height: 1.5;
-    }
+.current-page {
+    display: inline-block;
+    color: var(--accent2);
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
 
-    .post-text p {
-        margin-top: 4%;
-        margin-bottom: 4%;
-    }
-    
-    .post-text li {
-        margin-top: 0;
-        margin-left: 10%;
-    }
-    
-    .post-text h3 {
-        margin: 0 auto;
-        text-align: center;
-        color: var(--accent);
-        font-size: 1.2em !important;
-        font-weight: 400;
-    }
-    
-    .post-text img {
-        width: 100%;
-        height: auto;
-    }
-    
-    .date {
-        margin: 0 auto;
-        text-align: center;
-        color: var(--accent2);
-        font-size: 1em;
-    }
-    
-    .paginator {
-        text-align: center;    
-        font-size: 1.2em;
-        right: 0;
-        left: 0;
-        padding-bottom: 2vh;
-    }
-    
-    .post-preview {
-        padding: 1.5rem;
-        border-bottom: 1px solid var(--accent2);
-        font-size: 1em;
-        line-height: 1.5;
-        max-width: 50vw;
-    }
-    
-    .post-preview h2 {
-        font-size: 1em;    
-    }
-    
-    .project-box {
-        margin-top: 2em;
-    }
+.wrapper main {
+    position: relative;
+    top: 6vh;
+    bottom: 8vh;
+    flex: 1;
+}
 
-    .project-box .project-link {
-        width: 48%;
-        margin: 1%;
-    }
+.wrapper footer {
+    height: 15vh;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
+}
 
-    .project-box .project-preview {
-        font-size: 1em;
-        width: 70%;
-        margin: 0 auto;
-        padding-top: 1em;
-    }
+.main-title-container {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-    .project-box .project-preview p {
-        margin-top: 1em !important;
-        margin-bottom: 1em !important;
-    }
-    
-    .project-box .project-preview h2 {
-        padding: 0.1em;
-        text-align: center;
-        font-size: 1.2em;
-    }
-    
-    .project-box .project-preview img {
-        width: 100%;
-        height: auto;
-    }
+.main-title {
+    font-size: 6rem;
+    text-align: center;
+    color: var(--accent3);
+    font-weight: 200;
+}
+
+.buttons {
+    font-size: 2rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.page-title {
+    text-align: center;
+    font-weight: normal;
+    color: var(--accent3);
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 40vw;
+    margin-top: -0.65em;
+    background-color: var(--background);
+    border: double 5.5px var(--text);
+}
+
+.medium-text {
+    font-size: 2.5em !important;
+    margin-top: -1.25em;
+}
+
+.post-text {
+    width: 50vw;
+    margin: 0 auto;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 1.3em;
+    line-height: 1.1;
+}
+
+.post-text p {
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.post-text li {
+    margin-top: 0;
+    margin-left: 10%;
+}
+
+.post-text h3 {
+    margin: 0 auto;
+    text-align: center;
+    color: var(--accent);
+    font-size: 1.5em !important;
+    font-weight: 400;
+}
+
+.post-text img {
+    width: 100%;
+    height: auto;
+}
+
+.date {
+    margin: 0 auto;
+    padding-top: 1.35em;
+    text-align: center;
+    color: var(--text);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.paginator {
+    text-align: center;    
+    font-size: 1.5em;
+    right: 0;
+    left: 0;
+    padding-bottom: 2vh;
+}
+
+.post-preview {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--accent2);
+    font-size: 1.1em;
+    line-height: 1.1;
+    max-width: 50vw;
+}
+
+.post-preview h2 {
+    font-size: 1.2em;    
+}
+
+.project-box {
+    margin-top: 2em;
+}
+
+.project-box .project-link {
+    width: 48%;
+    margin: 1%;
+}
+
+.project-box .project-preview {
+    font-size: 1.3em;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 1em;
+}
+
+.project-box .project-preview p {
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+}
+
+.project-box .project-preview h2 {
+    padding: 0.1em;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.project-box .project-preview img {
+    width: 100%;
+    height: auto;
 }

@@ -10,6 +10,7 @@ title: lexsai
     </head>
     <body>
         <div class="wrapper">
+            <canvas id="background" width="1000" height="1000"></canvas> 
             <header>
                 <nav>
                     <a href="/index.html">HOME</a>
@@ -18,11 +19,13 @@ title: lexsai
                 </nav> 
             </header>
             <main>
-                <h1 class="page-title" id="page-title">{{ title }}</h1>
-                <div class="date">{% formatDate date %}</div>
-                <section class="post-text">
-                    {{ content }}
-                </section>
+                <div class="border-container">
+                    <h1 class="page-title" id="page-title">{{ title }}</h1>
+                    <div class="date">{% formatDate date %}</div>
+                    <section class="post-text">
+                        {{ content }}
+                    </section>
+                </div>
             </main>
             <footer>
             </footer>
@@ -34,5 +37,6 @@ title: lexsai
                 pageTitleElement.classList.add("medium-text")
             }
         </script>
+        <script src="/scripts/background.js"></script>
     </body>
 </html>

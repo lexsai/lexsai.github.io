@@ -3,7 +3,14 @@ module.exports = eleventyConfig => {
     eleventyConfig.addWatchTarget("./src/css/");
 
     eleventyConfig.addPassthroughCopy('./src/images')
-    eleventyConfig.addWatchTarget("./src/images/darza1/");
+    eleventyConfig.addWatchTarget("./src/images/");
+    
+    eleventyConfig.addPassthroughCopy('./src/fonts')
+    eleventyConfig.addWatchTarget("./src/fonts/");
+
+    eleventyConfig.addPassthroughCopy('./src/scripts')
+    eleventyConfig.addWatchTarget("./src/scripts/");
+
 
     eleventyConfig.addShortcode('excerpt', (post, length) => {
         let content = post.templateContent;
