@@ -103,7 +103,6 @@ class Boid {
     }
 
     constrainScreen() {
-        console.log(this.y)
         let vec = [0,0];
         if (this.x < 0) {
             vec[0] = limitingSpeed;

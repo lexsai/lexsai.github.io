@@ -1,13 +1,11 @@
 ---
 layout: post.liquid
-title: The Conundrum of Server-Sided Bullet Collision
+title: Server-Sided Bullet Collision
 date: 2022-09-03
 tags: ['post']
 ---
 
 For a school project, I chose to create a multiplayer bullethell game-- despite having no experience with multiplayer networking. Surely it couldn't be that hard, right?
-
-Thankfully, with resources like Gabriel Gambetta's articles on [fast-paced multiplayer](https://gabrielgambetta.com/client-server-game-architecture.html), I was making decent progress developing the game...
 
 But how exactly would collisions in a multiplayer bullethell work? 
 
@@ -19,7 +17,7 @@ Consider this: in a bullethell game, it is essential for players to be capable o
 
 Logically, the best choice to optimise for precision would then be to calculate the bullets on the client-side. If the server was involved, the latency and difference in game state (the positions of the bullets and the players) might introduce imprecision. 
 
-However, this solution fails. Rule 1 of multiplayer networking is to never trust the client. What if the client refused to acknowledge their collisions? They would become invincible.
+However, this solution fails. Rule 1 of multiplayer networking is to never trust the client. What if the client refused to acknowledge their collisions? Then, they would become invincible.
 
 ### ATTEMPT #2
 
@@ -50,4 +48,4 @@ The steps to handling a bullet in this approach would be:
 4. using these timestamps, the server calculates elapsed time and simulates the bullet's position on the server side 
 5. every time the bullet's position is simulated on the server-side, the server checks for collision
 
-This works fairly accurately at detecting collision, and was the final solution I arrived at!
+This works fairly accurately at detecting collision.

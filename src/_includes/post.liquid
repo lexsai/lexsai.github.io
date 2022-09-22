@@ -20,9 +20,9 @@ title: lexsai
             </header>
             <main>
                 <div class="border-container">
-                    <h1 class="page-title" id="page-title">{{ title }}</h1>
-                    <div class="date">{% formatDate date %}</div>
+                    <h1 class="page-title" id="page-title">POST : {% formatDate date %}</h1>
                     <section class="post-text">
+                        <h2 class="post-title" id="post-title">{{ title }}</h2>
                         {{ content }}
                     </section>
                 </div>
@@ -32,9 +32,9 @@ title: lexsai
         </div>
 
         <script>
-            let pageTitleElement = document.getElementById("page-title");
-            if (pageTitleElement.innerText.length > 15) {
-                pageTitleElement.classList.add("medium-text")
+            let postTitleElement = document.getElementById("post-title");
+            if (postTitleElement.innerText.length > 15) {
+                postTitleElement.classList.add("medium-text")
             }
         </script>
         <script src="/scripts/background.js"></script>
