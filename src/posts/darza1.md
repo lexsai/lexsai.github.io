@@ -12,7 +12,7 @@ So, this is my attempt at reversing a multiplayer game.
 ### THE TARGET
 Darza's Dominion was initially released in 2015 as a mobile 'port' of "Realm of the Mad God", a bullethell permadeath MMO (very obscure). However, due to a rampant duping exploit, it was shut down for several years and re-released in 2022 by a small team of developers as a cross-platform game for both PC and mobile.
 
-The game's terms of service is unavailable, the game has a player base of around 30, and they have an explicitg bug bounty program-- reversing the game for educational purposes and participating in the bug bounty program is probably ok.
+The game's terms of service is unavailable, the game has a player base of around 30, and they have an explicit bug bounty program-- reverse engineering for educational purposes is justifiable.
 
 ![](/images/darza1/bugbounty.PNG)
 

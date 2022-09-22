@@ -13,6 +13,12 @@
     --accent2: rgb(59, 54, 62);
     --link-color: #ffc0e0;
 }
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
+
 * { 
     box-sizing: border-box;
     margin: 0;
@@ -30,7 +36,7 @@ canvas {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -9999;
+    z-index: -9;
 }
 
 a:link{text-decoration: none; color: var(--accent);}
@@ -47,6 +53,16 @@ a:active{text-decoration: none; color: var(--link-color);}
 .project-box .project-link:visited, .results-box .post-link:visited {text-decoration: none; color: var(--text); transition: color 0.3s}
 .project-box .project-link:hover, .results-box .post-link:hover {text-decoration: none; color: var(--link-color) !important;}
 .project-box .project-link:active .results-box .post-link:active {text-decoration: none; color: var(--link-color) !important;}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    color: var(--accent);
+    background-color: var(--accent3);
+}
 
 .wrapper {
     display: flex;
@@ -65,8 +81,8 @@ a:active{text-decoration: none; color: var(--link-color);}
     border: double 5.5px var(--text);
     z-index: 3;
     background-color: var(--background);
-    margin-left: 20vw;
-    max-width: 60vw;
+    margin-left: 15vw;
+    max-width: 70vw;
 }
 
 .results-box {
@@ -97,13 +113,18 @@ a:active{text-decoration: none; color: var(--link-color);}
     position: sticky;
     top: 0;
     height: 8vh;
-    padding-left: 13vw;
+    padding-left: 37vw;
     padding-top: 2vh;
     font-size: 2em;
-    width: 50vw;
-    margin-left: 25vw;
+    width: 95vw;
     background-color: var(--background);
     z-index: 3; 
+}
+
+.center {
+    padding-top: 1em;
+    display: block;
+    margin: 0 auto;
 }
 
 .wrapper header a {
@@ -136,6 +157,7 @@ a:active{text-decoration: none; color: var(--link-color);}
 
 .main-title-container {
     position: fixed;
+    z-index: 1;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -151,9 +173,14 @@ a:active{text-decoration: none; color: var(--link-color);}
 .buttons {
     font-size: 2rem;
     text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+}
 
+.popup {
+    position:relative;
+    margin-top: 105vh;
+    height: 80vh;
+    z-index: 10;
+    background-color: var(--background);
 }
 
 .page-title {
@@ -174,7 +201,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     margin: 0 auto;
     padding-left: 1em;
     padding-right: 1em;
-    padding-top: 2em;
+    padding-top: 1.25em;
     font-size: 1.3em;
     line-height: 1.1;
 }
@@ -210,7 +237,9 @@ a:active{text-decoration: none; color: var(--link-color);}
 }
 
 .post-text img {
-    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: auto;
     height: auto;
 }
 
@@ -233,7 +262,7 @@ a:active{text-decoration: none; color: var(--link-color);}
 
 .post-preview {
     padding: 1.5rem;
-    border-bottom: 1px solid var(--accent2);
+    border-bottom: 1.5px solid var(--accent2);
     font-size: 1.1em;
     line-height: 1.1;
     max-width: 50vw;
@@ -244,7 +273,7 @@ a:active{text-decoration: none; color: var(--link-color);}
 }
 
 .project-box {
-    margin-top: 2em;
+    margin-top: 0.5em;
 }
 
 .project-box .project-link {
