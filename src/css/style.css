@@ -194,11 +194,11 @@ a:active{text-decoration: none; color: var(--link-color);}
     text-align: center;
     color: var(--accent);
     font-size: 3em;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .medium-text {
-    font-size: 2.5em !important;
+    font-size: 2em !important;
 }
 
 .post-text h3 {
