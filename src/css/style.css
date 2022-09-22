@@ -194,7 +194,7 @@ a:active{text-decoration: none; color: var(--link-color);}
     text-align: center;
     color: var(--accent);
     font-size: 3em;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .medium-text {
