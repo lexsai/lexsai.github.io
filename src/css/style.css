@@ -6,7 +6,7 @@
 
 :root {
     --background :#09090a;
-    --background2 :#0d0c0e;
+    --background2 :#333035;
     --text: #f1e2f8;
     --accent: #ff79c6;
     --accent3: #df3896;
@@ -113,10 +113,12 @@ a:active{text-decoration: none; color: var(--link-color);}
     position: sticky;
     top: 0;
     height: 8vh;
-    padding-left: 37vw;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     padding-top: 2vh;
     font-size: 2em;
-    width: 95vw;
     background-color: var(--background);
     z-index: 3; 
 }
@@ -203,7 +205,6 @@ a:active{text-decoration: none; color: var(--link-color);}
     padding-right: 1em;
     padding-top: 1.25em;
     font-size: 1.3em;
-    line-height: 1.1;
 }
 
 .post-text p {
@@ -264,7 +265,6 @@ a:active{text-decoration: none; color: var(--link-color);}
     padding: 1.5rem;
     border-bottom: 1.5px solid var(--accent2);
     font-size: 1.1em;
-    line-height: 1.1;
     max-width: 50vw;
 }
 
