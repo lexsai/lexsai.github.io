@@ -29,7 +29,6 @@ body {
     color: var(--text);
     font-family: 'light';
     background-color: var(--background);
-    overflow-y: hidden;
 }
 
 canvas {
