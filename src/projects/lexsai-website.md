@@ -8,13 +8,11 @@ href: https://www.github.com/lexsai/lexsai.github.io/
 
 ![](/images/project_thumbnails/lexsai-website.png)
 
-Made with Liquid (a templating language), Javascript, CSS and Markdown.
+This website.
 
-Uses 11ty, a framework for static site generation.
+Made with Liquid (a templating language), Javascript, CSS and Markdown using 11ty, a framework for static site generation.
 
-My first attempt at building a website. CSS sucks.
-
-Hosted on GitHub Pages. (wow !)
+Hosted on GitHub Pages.
 
 
 
