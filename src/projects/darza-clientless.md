@@ -3,7 +3,7 @@ layout: post.liquid
 title: Clientless Game Bot
 date: 2022-09-06
 tags: ['project']
-href: https://www.github.com/lexsai/darza-clientless
+href: https://www.github.com/lexsai/
 ---
 
 (my current project)
