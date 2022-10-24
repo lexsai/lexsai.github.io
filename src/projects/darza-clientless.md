@@ -8,9 +8,6 @@ href: https://www.github.com/lexsai/darza-clientless
 
 (my current project)
 
-An attempt to reverse engineer and understand the protocol of a multiplayer game.
+A python library to interact with the protocol of a multiplayer game.
 
-Written in Python.
-
-My progress thus far is documented in my posts.
-
+The reverse engineering is documented in my posts.

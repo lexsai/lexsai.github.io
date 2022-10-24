@@ -10,7 +10,7 @@ href: https://www.github.com/lexsai/school-timetable-bot/
 
 (Archived)
 
-A discord bot made during the online learning of 2020 to notify users of period changes and fetch timetabled classes.
+A discord bot to notify period changes and fetch timetabled classes.
 
 Written in Python using discord.py. Automated the school's student search API to monitor period changes and fetch timetabled classes. 
 

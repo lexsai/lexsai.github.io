@@ -12,6 +12,4 @@ A multiplayer bullethell web game I made for my HSC Software Development & Desig
 
 Made with Javascript and HTML5. Uses socket.io to communicate over the network and HTML5 canvas to render the game.
 
-In terms of time spent, probably my largest programming project-- lots of confusing problems with multiplayer networking and designing the software's architecture.
-
 Hosted on Heroku, the link is available in the github repo.
