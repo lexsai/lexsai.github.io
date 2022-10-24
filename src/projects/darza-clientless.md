@@ -1,6 +1,6 @@
 ---
 layout: post.liquid
-title: Clientless Darza
+title: Clientless Game Bot
 date: 2022-09-06
 tags: ['project']
 href: https://www.github.com/lexsai/darza-clientless
