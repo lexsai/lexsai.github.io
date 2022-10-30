@@ -11,7 +11,7 @@ So, this is my attempt at reversing a multiplayer game.
 
 ### THE TARGET
 
-The game's terms of service is unavailable, the game has a player base of around 30, and they have an explicit bug bounty program. I will not be naming the game-- this post serves purely as a resource for learning reverse engineering.
+The game's terms of service is unavailable, the game has a player base of around 30, and they have an explicit bug bounty program. 
 
 ![](/images/multiplayergame/bugbounty.PNG)
 
