@@ -120,4 +120,4 @@ The process to reversing packet 0x1 was similar to the process for reversing 0xA
 
 ### NEXT PART
 
-Now that we can understand the update packets, our concern is now sustaining a connection and understanding the outgoing packets sent by the client. To do so, we will likely need to MITM the connection between the client and server to see what kind of traffic is being sent by the server, possibly building some sort of user interface to look through the network traffic and filter unwanted packets.
+Now that we can understand the update packets, our concern is now sustaining a connection and understanding the outgoing packets sent by the client. To do so, we will likely need to man-in-the-middle the connection between the client and server to see what kind of traffic is being sent to and from the server, possibly building some sort of user interface to look through the network traffic and filter unwanted packets.
