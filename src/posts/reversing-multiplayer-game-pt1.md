@@ -5,7 +5,7 @@ date: 2022-09-03
 tags: ['post']
 ---
 
-As a beginner to reverse engineering, I was looking for real software to practice on when it hit me-- what about a multiplayer game? Multiplayer games often have anticheats to prevent users from reversing their games, and understanding how a multiplayer game works would require both reversing the executable AND the closed API used by the client to communicate with game servers.
+As a beginner to reverse engineering, I was looking for software to practice on when it hit me-- what about a multiplayer game? Multiplayer games often have anticheats to prevent users from reversing their games, and understanding how a multiplayer game works would require both reversing the executable AND the closed API used by the client to communicate with game servers.
 
 So, this is my attempt at reversing a multiplayer game.
 
@@ -20,14 +20,12 @@ The first idea I had was to look through the client with dnspy. Perhaps I could 
 
 ![](/images/multiplayergame/dnspy.PNG)
 
-The first security measure: obfuscation. 
+The client appears to be obfuscated. The random unicode characters could probably be cleaned with de4dot, but it's likely that additional obfuscation measures are present. This will significantly increase the time needed to reverse the client.
 
-Because of the illegal unicode polluting the program's symbols in the IL, editing and recompiling the program's IL with dnspy would be difficult.
-
-There is one cool observation though: a 'CryptoProvider' class with hashing methods. Interesting.
+However, some of the class names do not appeared to be obfuscated. An interesting observation is the existence of a 'CryptoProvider' class with hashing methods.
 
 ### THE NETWORK
-Given that reversing the client would probably be tedious and beyond my skill level, I instead opted to look at the network. After identifying the servers of the game by clicking login and quickly tabbing over to wireshark, I set up a wireshark filter and started looking at the packets sent when logging in.
+Before investing time into reversing the client, I should take a look at the network activity of the game. To identify the game servers, I click login and quickly tab over to wireshark. Then, I set up a wireshark filter and observe the packets sent when logging in.
 
 The exchange when I try logging in with correct credentials:
 ![](/images/multiplayergame/wireshark.PNG)
@@ -41,7 +39,7 @@ The exchange when I try logging in with incorrect credentials:
 The particular response packet when I use an incorrect login:
 ![](/images/multiplayergame/incorrectcredentialspacket.PNG)
 
-Given that an incorrect login gives the response packet a message of, "Incorrect Credentials", I can safely assume that the the packet of 353 bytes likely contains my login credentials. Let's see it.
+Given that an incorrect login gives the response packet a message of, "Incorrect Credentials", I can safely assume that the response packet of 353 bytes likely contains my login credentials.
 
 ![](/images/multiplayergame/353packet.PNG)
 
@@ -51,7 +49,7 @@ Looking closely, a pattern is apparent:
 
 Two strings, each prepended by an 0xAC 0x00. If we interpret 0xAC 0x00 as little endian, we get 0xAC = 172, the exact length of each string. Hence, it probably refers to the string length.
 
-Furthermore, if we interpret the first four bytes as little endian as well, we get 0x15D = 349, exactly 353-4. This is likely the packet size minus the 4 bytes used to store the packet size.
+Furthermore, if we interpret the first four bytes as little endian, we get 0x15D = 349, exactly 353-4. This is likely the packet size minus the 4 bytes used to store the packet size.
 
 The fifth byte, 0x07, seems out of place. It would be safe to assume that this is a packet id of sorts.
 
@@ -73,21 +71,21 @@ Inspecting the CryptoProvider instance in dnspy, we find the RSA public key with
 
 ![](/images/multiplayergame/keys.PNG)
 
-But, for both strings in the packet to always be 172 bytes, there must be some kind of padding...
+But, for both strings in the packet to always be 172 bytes, there must be some kind of padding used.
 
 Following the function calls, we arrive here:
 
 ![](/images/multiplayergame/pkcs1.PNG)
 
-PKCS1 is a padding scheme!
+PKCS1 is a padding scheme! Given that stepping through the code leads to this value, it is likely that PKCS1 is the padding scheme used in the encryption process.
 
 ![](/images/multiplayergame/docs.PNG)
 
 ### EMULATION
 
-We now have all the data to construct a login packet.
+We now have all the information necessary to construct a login packet.
 
-Writing a python script to use the public key and PKCS1 padding standard to RSA encrypt my username and password and assemble a login packet, we get this response:
+Writing a python script to use the public key and PKCS1 padding to RSA encrypt my username and password, I assemble a login packet and get this response:
 
 ![](/images/multiplayergame/successpython.PNG)
 
@@ -95,7 +93,7 @@ The server is responding with our username-- this probably means that our login 
 
 ### NEXT PART
 
-In the login response packet, there is actually a token (that I covered up earlier):
+The login response packet also contains a token:
 
 ![](/images/multiplayergame/correctlogin.PNG)
 
@@ -103,6 +101,6 @@ The client sends this token after initiating a handshake with another server on 
 
 ![](/images/multiplayergame/connection.PNG)
 
-Likely, the login flow is as follows:
+A likely login flow is that the client sends their login details to an auth server to get their token, and then they use this token as authentication to connect with game servers.
 
-Client sends login to auth server -> auth server replies with token -> client uses token to connect with game server.
+Thus, the next step will be to connect with game servers and begin reversing packets.

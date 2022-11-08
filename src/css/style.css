@@ -226,7 +226,7 @@ a:active{text-decoration: none; color: var(--link-color);}
 }
 
 .medium-text {
-    font-size: 2em !important;
+    font-size: 1.75em !important;
 }
 
 .post-text h3 {
