@@ -5,19 +5,19 @@ date: 2022-09-03
 tags: ['post']
 ---
 
-As a beginner to reverse engineering, I was looking for software to practice on when it hit me-- what about a multiplayer game? Multiplayer games often have anticheats to prevent users from reversing their games, and understanding how a multiplayer game works would require both reversing the executable AND the closed API used by the client to communicate with game servers.
+As a beginner to reverse engineering, I was looking for software to practice on when it hit me-- what about a multiplayer game? Multiplayer games often have anticheats to prevent users from reversing their games, and understanding how a multiplayer game works would require reversing both the executable AND the network protocol used by the client to communicate with game servers.
 
 So, this is my attempt at reversing a multiplayer game.
 
 ### THE TARGET
 
-The game's terms of service is unavailable, the game has a player base of around 10, and they have an explicit bug bounty program. 
+The game's terms of service is unavailable, the game has a player base of around 10 and they have an explicit bug bounty program. 
 
 ![](/images/multiplayergame/bugbounty.PNG)
 
-[There is also precedent for others having reversed the game and disclosed their work publically for the sake of reporting exploits.](https://github.com/swrlly/Midnight)
+[There is also precedent for others having reversed the game and disclosed their work publically for the sake of reporting exploits with the approval of the developers.](https://github.com/swrlly/Midnight)
 
-My intent with this post is to provide a reference for learning how to reverse network protocols, not how to reverse this game in particular.
+My intent with this post is to help fill the lack of resources for learning how to reverse multiplayer game protocols, which is a seemingly esoteric topic.
 
 ### THE CLIENT
 The first idea I had was to look through the client with dnspy. Perhaps I could reverse the protocol by looking at the send & receive functions.
