@@ -1,7 +1,7 @@
 ---
 layout: post.liquid
 title: lexsai.github.io
-date: 2022-09-02
+date: 2022-11-02
 tags: ['project']
 href: https://www.github.com/lexsai/lexsai.github.io/
 ---
