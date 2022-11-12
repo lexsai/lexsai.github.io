@@ -11,9 +11,13 @@ So, this is my attempt at reversing a multiplayer game.
 
 ### THE TARGET
 
-The game's terms of service is unavailable, the game has a player base of around 30, and they have an explicit bug bounty program. 
+The game's terms of service is unavailable, the game has a player base of around 10, and they have an explicit bug bounty program. 
 
 ![](/images/multiplayergame/bugbounty.PNG)
+
+[There is also precedent for others having reversed the game and disclosed their work publically for the sake of reporting exploits.](https://github.com/swrlly/Midnight)
+
+My intent with this post is to provide a reference for learning how to reverse network protocols, not how to reverse this game in particular.
 
 ### THE CLIENT
 The first idea I had was to look through the client with dnspy. Perhaps I could reverse the protocol by looking at the send & receive functions.
