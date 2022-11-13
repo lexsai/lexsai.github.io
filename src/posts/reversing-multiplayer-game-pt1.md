@@ -5,19 +5,18 @@ date: 2022-09-03
 tags: ['post']
 ---
 
-As a beginner to reverse engineering, I was looking for software to practice on when it hit me-- what about a multiplayer game? Multiplayer games often have anticheats to prevent users from reversing their games, and understanding how a multiplayer game works would require reversing both the executable AND the network protocol used by the client to communicate with game servers.
+Multiplayer games are interesting targets for reverse engineering. Multiplayer games often have anticheats to prevent users from reversing their games, and fully understanding how a multiplayer game works requires reversing both the client executable and the network protocol used by the client to communicate with game servers. 
 
-So, this is my attempt at reversing a multiplayer game.
+My intent with this post is to help fill the lack of resources for learning how to reverse multiplayer game protocols. For another resource, that helped me significantly on this project, check out [Testudo Binarii's articles on reversing Path of Exile](http://tbinarii.blogspot.com/2018/05/reverse-engineering-path-of-exile.html).
+
 
 ### THE TARGET
 
-The game's terms of service is unavailable, the game has a player base of around 10 and they have an explicit bug bounty program. 
+The game is permissive in terms of reverse engineering. The game's terms of service is unavailable, the game has a player base of around 10 and they have an explicit bug bounty program. 
+
+[There is also precedent for others having reversed this game and disclosed their work publically for the sake of reporting exploits, with approval of the developers.](https://github.com/swrlly/Midnight)
 
 ![](/images/multiplayergame/bugbounty.PNG)
-
-[There is also precedent for others having reversed the game and disclosed their work publically for the sake of reporting exploits with the approval of the developers.](https://github.com/swrlly/Midnight)
-
-My intent with this post is to help fill the lack of resources for learning how to reverse multiplayer game protocols, which is a seemingly esoteric topic.
 
 ### THE CLIENT
 The first idea I had was to look through the client with dnspy. Perhaps I could reverse the protocol by looking at the send & receive functions.
