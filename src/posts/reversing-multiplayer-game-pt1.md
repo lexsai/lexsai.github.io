@@ -12,7 +12,7 @@ My intent with this post is to help fill the lack of resources for learning how 
 
 ### THE TARGET
 
-The game is permissive in terms of reverse engineering. The game's terms of service is unavailable, the game has a player base of around 10 and they have an explicit bug bounty program. 
+The game is permissive in terms of reverse engineering. The game has no terms of service nor EULA, the game has a player base of around 10 and they have an explicit bug bounty program. 
 
 [There is also precedent for others having reversed this game and disclosed their work publically for the sake of reporting exploits, with approval of the developers.](https://github.com/swrlly/Midnight)
 
