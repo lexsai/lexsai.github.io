@@ -1,0 +1,42 @@
+
+<html>
+  <head>
+    <title>Dodge Game - lexsai</title>
+    <link rel="icon" href="/images/favicon2.png">
+    <link rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <div class="wrapper">
+      <canvas id="background" width="1000" height="1000"></canvas>
+      <header>
+        <nav>
+          <a href="/index.html">HOME</a>
+          <a href="/archive/">POSTS</a>
+          <a href="/projects/">PROJECTS</a>
+        </nav>
+      </header>
+      <main>
+        <div class="border-container">
+          <h1 class="page-title" id="page-title">Post : 12/12/2022</h1>
+          <section class="post-text">
+            <h2 class="post-title" id="post-title">Dodge Game</h2>
+            <p><img src="/images/project_thumbnails/dodge-game.png" alt=""></p>
+<p>A multiplayer bullethell web game.</p>
+<p>Made with Javascript and HTML5. Uses socket.io to communicate over the network and HTML5 canvas to render the game.</p>
+<p>Hosted on Heroku, the link is available in the github repo.</p>
+
+          </section>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script>
+      let postTitleElement = document.getElementById("post-title");
+      if (postTitleElement.innerText.length > 15) {
+        postTitleElement.classList.add("medium-text")
+      }
+    </script>
+    <script src="/scripts/background.js"></script>
+  </body>
+</html>

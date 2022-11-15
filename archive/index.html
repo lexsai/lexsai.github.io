@@ -1,10 +1,3 @@
----
-pagination:
-    data: collections.post
-    size: 5
-    alias: posts
-    reverse: true
----
 
 <html>
   <head>
@@ -26,28 +19,24 @@ pagination:
         <div class="border-container">
           <h1 class="page-title" id="page-title">My Posts</h1>
           <div class="results-box">
-            {% for post in posts %}
-              <a class="post-link" href="{{ post.url }}">
+            
+              <a class="post-link" href="/posts/multiplayer-collision/">
                 <div class="post-preview">
-                  <h2>{{ post.data.title }} - {% formatDate post.data.date %}</h2>
-                  {% excerpt post 200 %}
+                  <h2>Server-Sided Bullet Collision - 9/3/2022</h2>
+                  For a school project, I chose to create a multiplayer bullethell game-- despite having no experience with multiplayer networking. Surely it couldn't be that hard, right?...
                 </div>
               </a>
-            {% endfor %}
+            
           </div><br>
           <div class="paginator">
             <p>
-              {% if pagination.href.previous %}
-                <a href=" {{ pagination.href.previous }}">PREV</a>
-              {% else %}
+              
                 PREV
-              {% endif %}
+              
               /
-              {% if pagination.href.next %}
-                <a href=" {{ pagination.href.next }}">NEXT</a>
-              {% else %}
+              
                 NEXT
-              {% endif %}
+              
             </p>
           </div>
         </div>

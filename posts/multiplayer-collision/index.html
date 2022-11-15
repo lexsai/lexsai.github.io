@@ -1,0 +1,69 @@
+
+<html>
+  <head>
+    <title>Server-Sided Bullet Collision - lexsai</title>
+    <link rel="icon" href="/images/favicon2.png">
+    <link rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <div class="wrapper">
+      <canvas id="background" width="1000" height="1000"></canvas>
+      <header>
+        <nav>
+          <a href="/index.html">HOME</a>
+          <a href="/archive/">POSTS</a>
+          <a href="/projects/">PROJECTS</a>
+        </nav>
+      </header>
+      <main>
+        <div class="border-container">
+          <h1 class="page-title" id="page-title">Post : 9/3/2022</h1>
+          <section class="post-text">
+            <h2 class="post-title" id="post-title">Server-Sided Bullet Collision</h2>
+            <p>For a school project, I chose to create a multiplayer bullethell game-- despite having no experience with multiplayer networking. Surely it couldn't be that hard, right?</p>
+<p>But how exactly would collisions in a multiplayer bullethell work?</p>
+<h3>THE PROBLEM</h3>
+<p>Consider this: in a bullethell game, it is essential for players to be capable of moving with <a href="https://www.youtube.com/watch?v=lHyW6Gp6UE8">precision</a> to evade bullets-- if players were registered as hit because of imprecisions in the collision system, the game would be frustrating and unplayable.</p>
+<h3>ATTEMPT #1</h3>
+<p>Logically, the best choice to optimise for precision would then be to calculate the bullets on the client-side. If the server was involved, the latency and difference in game state (the positions of the bullets and the players) might introduce imprecision.</p>
+<p>However, this solution fails. Rule 1 of multiplayer networking is to never trust the client. What if the client refused to acknowledge their collisions? Then, they would become invincible.</p>
+<h3>ATTEMPT #2</h3>
+<p>Given that client-sided collision is off the table, what if we used server-sided collisions and attempted to compensate for the latency and difference in game state?</p>
+<p>To compensate for the latency, we could attempt to synchronize the times when the bullets are created by the client and the server, but only handle the collisions on the server-side.</p>
+<p>The steps to handling a bullet in this approach would be:</p>
+<ol>
+<li>server sends packet to client containing a time in the future</li>
+<li>at this time in the future, the client and server creates a bullet</li>
+<li>client and server updates the position of this bullet every tick of its lifespan</li>
+<li>however, only the server detects collision</li>
+</ol>
+<p>However, this solution also fails. What if the timestamp is before the client receives the message due to latency? The bullet would suddenly teleport from its spawn position, leaving the player no time to react.</p>
+<p>Furthermore, synchronising a timestamp across client and server is a far more difficult task than it seems-- a desync of around 1-2 seconds is hard to eliminate, and this could again lead to teleporting bullets.</p>
+<h3>ATTEMPT #3 (THE SOLUTION)</h3>
+<p>Attempt #2 failed partly because we used the server-side timestamp, which is not generous to the client's latency. What if we only used the client-side timestamp?</p>
+<p>If the client sent a timestamp at a fixed short interval, it would be possible for the server to simulate the bullet's client-side position using the elapsed time between client timestamps.</p>
+<p>The steps to handling a bullet in this approach would be:</p>
+<ol>
+<li>server sends a packet to the client to spawn a bullet</li>
+<li>client responds with an acknowledgement of the bullet packet, together with client timestamp</li>
+<li>client is constantly sending client-side timestamps to the server</li>
+<li>using these timestamps, the server calculates elapsed time and simulates the bullet's position on the server side</li>
+<li>every time the bullet's position is simulated on the server-side, the server checks for collision</li>
+</ol>
+<p>This works fairly accurately at detecting collision.</p>
+
+          </section>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script>
+      let postTitleElement = document.getElementById("post-title");
+      if (postTitleElement.innerText.length > 15) {
+        postTitleElement.classList.add("medium-text")
+      }
+    </script>
+    <script src="/scripts/background.js"></script>
+  </body>
+</html>
