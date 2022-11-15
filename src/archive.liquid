@@ -7,54 +7,53 @@ pagination:
 ---
 
 <html>
-    <head>
-        <title>POSTS - lexsai</title>
-        <link rel="icon" href="/images/favicon2.png">
-        <link rel="stylesheet" href="/css/style.css" />
-    </head>
-    <body>
-        <div class="wrapper">
-            <canvas id="background" width="1000" height="1000"></canvas> 
-            <header>
-                <nav>
-                    <a href="/index.html">HOME</a>
-                    <div class="current-page">POSTS</div>
-                    <a href="/projects/">PROJECTS</a>
-                </nav> 
-            </header>
-            <main>
-                <div class="border-container">
-                    <h1 class="page-title" id="page-title">My Posts</h1>
-                    <div class="results-box">
-                        {% for post in posts %}
-                            <a class="post-link" href="{{ post.url }}">
-                                <div class="post-preview">
-                                    <h2>{{ post.data.title }} - {% formatDate post.data.date %}</h2>
-                                    {% excerpt post 200 %}
-                                </div>
-                            </a>
-                        {% endfor %}
-                    </div><br>
-                    <div class="paginator">
-                        <p>
-                            {% if pagination.href.previous %}
-                                <a href=" {{ pagination.href.previous }}">PREV</a>
-                            {% else %}
-                                PREV
-                            {% endif %} 
-                            / 
-                            {% if pagination.href.next %}
-                                <a href=" {{ pagination.href.next }}">NEXT</a>
-                            {% else %}
-                                NEXT
-                            {% endif %}
-                        </p>
-                    </div>    
+  <head>
+    <title>POSTS - lexsai</title>
+    <link rel="icon" href="/images/favicon2.png">
+    <link rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <div class="wrapper">
+      <canvas id="background" width="1000" height="1000"></canvas>
+      <header>
+        <nav>
+          <a href="/index.html">HOME</a>
+          <div class="current-page">POSTS</div>
+          <a href="/projects/">PROJECTS</a>
+        </nav>
+      </header>
+      <main>
+        <div class="border-container">
+          <h1 class="page-title" id="page-title">My Posts</h1>
+          <div class="results-box">
+            {% for post in posts %}
+              <a class="post-link" href="{{ post.url }}">
+                <div class="post-preview">
+                  <h2>{{ post.data.title }} - {% formatDate post.data.date %}</h2>
+                  {% excerpt post 200 %}
                 </div>
-            </main>
-            <footer>
-            </footer>
+              </a>
+            {% endfor %}
+          </div><br>
+          <div class="paginator">
+            <p>
+              {% if pagination.href.previous %}
+                <a href=" {{ pagination.href.previous }}">PREV</a>
+              {% else %}
+                PREV
+              {% endif %}
+              /
+              {% if pagination.href.next %}
+                <a href=" {{ pagination.href.next }}">NEXT</a>
+              {% else %}
+                NEXT
+              {% endif %}
+            </p>
+          </div>
         </div>
-        <script src="/scripts/background.js"></script>
-    </body>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="/scripts/background.js"></script>
+  </body>
 </html>
