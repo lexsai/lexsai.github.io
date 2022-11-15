@@ -1,0 +1,59 @@
+---
+pagination:
+    data: collections.project
+    size: 6
+    alias: projects
+    reverse: true
+---
+
+<html>
+  <head>
+    <title>PROJECTS - lexsai</title>
+    <link rel="icon" href="/images/favicon2.png">
+    <link rel="stylesheet" href="/css/style.css"/>
+  </head>
+  <body>
+    <div class="wrapper">
+      <canvas id="background" width="1000" height="1000"></canvas>
+      <header>
+        <nav>
+          <a href="/index.html">HOME</a>
+          <a href="/archive/">POSTS</a>
+          <div class="current-page">PROJECTS</div>
+        </nav>
+      </header>
+      <main>
+        <div class="border-container-wide">
+          <h1 class="page-title" id="page-title">My Projects</h1>
+          <div class="project-box">
+            {% for project in projects %}
+              <a class="project-link" href="{{ project.data.href }}">
+                <div class="project-preview">
+                  <h2>{{ project.data.title }}</h2>
+                  {{ project.templateContent }}
+                </div>
+              </a>
+            {% endfor %}
+          </div><br>
+          <div class="paginator">
+            <p>
+              {% if pagination.href.previous %}
+                <a href=" {{ pagination.href.previous }}">PREV</a>
+              {% else %}
+                PREV
+              {% endif %}
+              /
+              {% if pagination.href.next %}
+                <a href=" {{ pagination.href.next }}">NEXT</a>
+              {% else %}
+                NEXT
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="/scripts/background.js"></script>
+  </body>
+</html>
