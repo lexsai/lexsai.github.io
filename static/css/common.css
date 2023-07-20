@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "light";
+  src: url(/static/font/basis33.ttf);
+}
+
 html {
   color: #333333;
   background: #ffffff;
@@ -8,7 +13,7 @@ html {
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Cascadia Code', Consolas, Helvetica, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  font-family: 'light', 'Cascadia Code', Consolas, Helvetica, 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
   overflow-y: overlay;
 }
 html[transition] {
@@ -121,6 +126,14 @@ input:-webkit-autofill {
   background-image: url(../img/logo.jpg);
   background-size: cover;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.page {
+  flex: 1;
+}
 .header .menu {
   margin-right: -9px;
   text-align: right;
@@ -128,14 +141,14 @@ input:-webkit-autofill {
 }
 .header .menu a {
   display: inline-block;
-  font-size: 16px;
+  font-size: 21px;
   margin: 4px 9px;
   white-space: nowrap;
   user-select: auto;
 }
 .footer {
   padding: 15px 0;
-  font-size: 14px;
+  font-size: 19px;
 }
 .footer a {
   text-decoration: underline;
@@ -157,7 +170,7 @@ input:-webkit-autofill {
   font-size: 0;
 }
 .footer-btn i {
-  font-size: 22px;
+  font-size: 27px;
   background-color: #ffffff;
 }
 .footer-btn.theme-toggler {
@@ -207,6 +220,6 @@ input:-webkit-autofill {
   }
   .header .menu a {
     margin: 2px 5px;
-    font-size: 15px;
+    font-size: 20px;
   }
 }

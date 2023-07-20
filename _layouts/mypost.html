@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en-AU">
 {% include head.html -%}
 <body>
+<div class="container">
 {% include header.html -%}
 <div class="page page-post">
   <h1 class="title" id="{{ page.title }}">{{ page.title }}</h1>
   {% if page.date %}
   <div class="subtitle">
-    <span>{{site.author}} 于 {{ page.date | date: "%Y-%m-%d" }} 发布</span>
+    <span>{{site.author}} | {{ page.date | date: "%Y-%m-%d" }}</span>
     {%- if site.extCount %}
       <span>浏览量</span>
       <span id="busuanzi_value_page_pv"></span>
@@ -24,6 +25,7 @@
   {% endif %}
 </div>
 {% include footer.html -%}
+</div>
 {% include script.html -%}
 </body>
 </html>

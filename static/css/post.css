@@ -1,19 +1,18 @@
 .page-post {
-  font-size: 14px;
-  line-height: 2;
-  word-break: break-all;
+  font-size: 19px;
+  line-height: 1.25;
 }
 .page-post .title {
-  font-size: 18px;
+  font-size: 23px;
   font-weight: bold;
   color: #666666;
 }
 .page-post .subtitle {
-  font-size: 12px;
+  font-size: 17px;
   color: #999999;
 }
 .page-post .post > * {
-  margin: 18px 0;
+  margin: 27px 0;
 }
 .page-post .post > iframe {
   margin: 0;
@@ -21,8 +20,8 @@
 }
 .page-post .post h1,
 .page-post .post h2 {
-  font-weight: normal;
-  font-size: 17px;
+  font-weight: bold;
+  font-size: 22px;
   position: relative;
   cursor: pointer;
 }
@@ -37,7 +36,7 @@
 .page-post h4,
 .page-post h5,
 .page-post h6 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
 }
 .page-post blockquote {
@@ -97,7 +96,7 @@
   line-height: 1.6;
 }
 .page-post code {
-  font-size: 13px;
+  font-size: 18px;
   background-color: #eeeeee;
   word-break: break-all;
   padding: 3px 5px;
@@ -106,7 +105,7 @@
   color: #4d4d4c;
 }
 .page-post pre code {
-  font-size: 13px;
+  font-size: 18px;
   background-color: transparent !important;
   word-break: keep-all;
   padding: 0;
@@ -153,10 +152,10 @@
 }
 @media screen and (max-width: 560px) {
   .page-post {
-    font-size: 13px;
+    font-size: 18px;
   }
   .page-post pre code {
-    font-size: 12px;
+    font-size: 17px;
   }
   .page-post .post > * {
     margin: 15px 0;

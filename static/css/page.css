@@ -1,11 +1,11 @@
 .list-post > h2 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   padding: 12px 0;
 }
 .list-post ul {
   box-sizing: border-box;
-  padding-left: 15px;
+  padding-left: 20px;
 }
 .list-post li {
   display: flex;
@@ -14,7 +14,7 @@
 }
 .list-post li .date {
   color: #666666;
-  font-size: 14px;
+  font-size: 19px;
   flex-shrink: 0;
   margin-right: 10px;
 }
@@ -27,7 +27,7 @@
   text-overflow: ellipsis;
 }
 .list-post li .title a {
-  font-size: 15px;
+  font-size: 20px;
 }
 .list-post li .categories {
   flex-shrink: 0;
@@ -35,12 +35,12 @@
   margin-left: 10px;
 }
 .list-post li .categories a {
-  font-size: 12px;
+  font-size: 17px;
   color: #666666;
   margin-left: 8px;
 }
 .list-category h2 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   padding: 12px 0;
 }
@@ -50,27 +50,27 @@
 .list-category div a {
   margin: 4px 6px;
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 20px;
   display: inline-block;
   border-bottom: 1px solid #333333;
 }
 .page-search #search-input {
   text-align: center;
-  font-size: 14px;
+  font-size: 19px;
   border: 1px solid #eaeaea;
   width: 100%;
   padding: 10px 0;
   background-color: transparent;
 }
 .page-search h1 {
-  font-size: 16px;
+  font-size: 21px;
   height: 46px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
 }
 .page-search h1 i {
-  font-size: 20px;
+  font-size: 25px;
   margin-left: 6px;
 }
 .page-search .list-search li {
@@ -84,17 +84,15 @@
 }
 .page-search .list-search .title {
   display: inline-block;
-  word-break: break-all;
-  font-size: 14px;
+  font-size: 19px;
   font-weight: bold;
   padding-bottom: 1px;
   border-bottom: 1px solid #999;
 }
 .page-search .list-search .content {
   display: block;
-  font-size: 14px;
+  font-size: 19px;
   color: #5a5a5a;
-  word-break: break-all;
   padding: 10px 0;
 }
 .page-search .list-search .hint {
@@ -110,7 +108,7 @@
     padding: 6px 0;
   }
   .list-post li .title a {
-    font-size: 14px;
+    font-size: 19px;
   }
   .list-post .categories {
     display: none;
@@ -119,6 +117,6 @@
     padding: 10px 0;
   }
   .list-category div a {
-    font-size: 14px;
+    font-size: 19px;
   }
 }
