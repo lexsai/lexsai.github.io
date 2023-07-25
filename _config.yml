@@ -8,7 +8,7 @@ author: lexsai
 footerText: ''
 
 # 这些不要动
-permalink: /posts/:title
+permalink: /posts/:title/
 kramdown:
   auto_ids: true
   input: GFM
